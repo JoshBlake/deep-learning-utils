@@ -1,0 +1,54 @@
+# Add this to the end of your .bashrc/.bash_profile and uncomment it there:
+# Leave this commented in this file of course.
+
+#if [ -f ~/.customrc ]; then
+#    . ~/.customrc
+#fi
+
+alias gf='git fetch -p'
+alias gs='git status'
+alias gaa='git add -A'
+alias gca='git commit --amend -C HEAD'
+alias gpf='git push --force-with-lease'
+alias gcm='git commit -m'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gp='git push'
+alias gsu='git submodule update --init --recursive'
+alias gps='git pull && git submodule update --init --recursive'
+alias cr='cargo run'
+alias crr='cargo run --release'
+alias cb='cargo build'
+alias cbr='cargo build --release'
+alias ct='cargo test'
+alias bpr='. ~/.bash_profile'
+alias cmaker='cmake .. -DCMAKE_BUILD_TYPE=Release'
+alias cmakerwdi='cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo'
+alias cmaked='cmake .. -DCMAKE_BUILD_TYPE=Debug'
+
+function gitka() (
+    for b in "`git for-each-ref --format='%(refname:short)'`"; do echo "$b"; done | tr -d "*" | xargs gitk &
+)
+
+function timestamp() {
+    echo $(date +%s)
+}
+
+start_agent() {
+    echo "Initialising new SSH agent..."
+    /usr/bin/ssh-agent -s | sed 's/^echo/#echo/' > ~/.ssh/agent.env
+    chmod 600 ~/.ssh/agent.env
+    . ~/.ssh/agent.env > /dev/null
+    ssh-add ~/.ssh/id_rsa
+}
+
+if [ -f ~/.ssh/agent.env ]; then
+    echo "SSH agent environment found"
+    . ~/.ssh/agent.env > /dev/null
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+	start_agent;
+    }
+else
+    start_agent
+fi
+
