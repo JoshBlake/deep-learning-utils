@@ -1,0 +1,24 @@
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: apt-get upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: apt-get install p7zip-full
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: /usr/bin/unattended-upgrade
+Commandline: apt install ffmpeg
+Commandline: apt install nmon
+Commandline: apt install sysstat
+Commandline: apt install iotop
+Commandline: apt install aptitude
