@@ -21,7 +21,7 @@ alias crr='cargo run --release'
 alias cb='cargo build'
 alias cbr='cargo build --release'
 alias ct='cargo test'
-alias bpr='. ~/.bash_profile'
+alias bpr='. ~/.bashrc'
 alias cmaker='cmake .. -DCMAKE_BUILD_TYPE=Release'
 alias cmakerwdi='cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo'
 alias cmaked='cmake .. -DCMAKE_BUILD_TYPE=Debug'
@@ -45,9 +45,12 @@ start_agent() {
 if [ -f ~/.ssh/agent.env ]; then
     echo "SSH agent environment found"
     . ~/.ssh/agent.env > /dev/null
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+    if ps -p $SSH_AGENT_PID | grep ssh-agent$ > /dev/null
+    then
+	echo "ssh-agent is already running"
+    else
 	start_agent;
-    }
+    fi
 else
     start_agent
 fi
