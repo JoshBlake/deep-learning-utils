@@ -1,14 +1,16 @@
 #!/bin/bash
 
 network='bbmsggan'
-dataset='celeba10k'
-experiment='001'
+dataset='celeba1k'
+experiment='003'
 path='/data/jupyter/generative/BBMSG-GAN/sourcecode/samples'
 outpath='/data/jupyter/videos'
 
 script_dir=`dirname "$0"`
 
-declare -a res_dirs=('4_x_4' '8_x_8' '16_x_16' '32_x_32' '64_x_64' '128_x_128')
+#declare -a res_dirs=('4_x_4' '8_x_8' '16_x_16' '32_x_32' '64_x_64' '128_x_128')
+declare -a res_dirs=('4_x_4' '8_x_8' '16_x_16' '32_x_32' '64_x_64')
+#declare -a res_dirs=('4_x_4' '8_x_8' '16_x_16' '32_x_32')
 
 for res_dir in "${res_dirs[@]}"
 do
