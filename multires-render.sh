@@ -1,8 +1,9 @@
 #!/bin/bash
 
 network='bbmsggan'
-dataset='celeba1k'
-experiment='007'
+dataset='celeba10k'
+experiment='008'
+tag='L512'
 path='/data/jupyter/generative/BBMSG-GAN/sourcecode/samples'
 outpath='/data/jupyter/videos'
 
@@ -18,7 +19,7 @@ do
 	$script_dir/rename-pad.py ${dir}*.png
 
 	# the weird ${res_dir//_} is a regex that replaces underscores with nothing (deletes them)
-	outfile="${outpath}/${network}-${dataset}-${experiment}-${res_dir//_}.mp4"
+	outfile="${outpath}/${network}-${dataset}-${experiment}-${tag}-${res_dir//_}.mp4"
 	echo "${dir} -> ${outfile}"
-	$script_dir/make-mp4.sh ${dir} ${outfile} gen_ 0_000003
+	$script_dir/make-mp4.sh ${dir} ${outfile} gen_ _000001.png
 done

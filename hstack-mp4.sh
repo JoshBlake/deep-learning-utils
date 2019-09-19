@@ -13,7 +13,7 @@ experiment='latent64-128-256-512'
 
 outpath='/data/jupyter/videos'
 
-res="64x64"
+res="32x32"
 inputpath1="/data/jupyter/videos/bbmsggan-celeba1k-006-${res}.mp4"
 inputpath2="/data/jupyter/videos/bbmsggan-celeba1k-007-${res}.mp4"
 inputpath3="/data/jupyter/videos/bbmsggan-celeba1k-004-${res}.mp4"
